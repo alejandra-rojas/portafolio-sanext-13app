@@ -1,0 +1,100 @@
+//FONTS
+$titleFont: Arial, Helvetica, sans-serif;
+$bodyFont: "Times New Romas", Times, serif;
+
+$base-font-size: 1.25rem;
+$font-size-sm: $base-font-size * 0.85;
+$font-size-lg: $base-font-size * 1.5;
+$font-size-xl: $base-font-size * 2;
+$font-size-xxl: $base-font-size * 3;
+
+//COLORS
+$color-black: rgb(24, 24, 24);
+$color-grey: #f5f0ea;
+$color-neon-green: #55ec80;
+$color-yellow: #f2fc08;
+$color-orange: #df9504;
+$color-brown: #2a0000;
+
+//BREAKPOINTS
+$breakpoints: (
+  "sm": 480px,
+  "md": 720px,
+  "lg": 960px,
+  "xl": 1280px,
+);
+//Generic
+@mixin breakpoint($bp: 0) {
+  @media (min-width: $bp) {
+    @content;
+  }
+}
+@mixin breakpoint-sm {
+  @media (min-width: map-get($breakpoints, "sm")) {
+    @content;
+  }
+}
+@mixin breakpoint-md {
+  @media (min-width: map-get($breakpoints, "md")) {
+    @content;
+  }
+}
+@mixin breakpoint-lg {
+  @media (min-width: map-get($breakpoints, "lg")) {
+    @content;
+  }
+}
+@mixin breakpoint-xl {
+  @media (min-width: map-get($breakpoints, "xl")) {
+    @content;
+  }
+}
+
+//SPACING
+$base-padding: 0.75rem;
+$base-padding2X: 1.5rem;
+$base-margin: 0.75rem;
+
+//BORDER
+$base-border-radius: 10px;
+$base-border-radius-md: 20px;
+$base-border-thickness: 1px;
+
+@mixin input {
+  margin: 0.25rem 0;
+  padding: 0.75rem 0 0.65rem;
+  border-bottom: solid $base-border-thickness $color-grey;
+}
+
+//SHADOW
+$base-box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.25);
+
+//MIX INS
+@mixin h2 {
+  font-size: $font-size-lg;
+  font-weight: 600;
+}
+
+@mixin h3 {
+  font-size: $base-font-size;
+  font-weight: 600;
+
+  @include breakpoint-md {
+    font-size: $font-size-lg;
+  }
+}
+
+@mixin flex-row($gapSize: 2rem) {
+  display: flex;
+  flex-direction: row;
+  gap: $gapSize;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-col($gapSize: 2rem) {
+  display: flex;
+  flex-direction: column;
+  gap: $gapSize;
+  justify-content: center;
+}
